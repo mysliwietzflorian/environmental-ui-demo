@@ -1,15 +1,28 @@
 const $selection = $('#selection');
 const $items = $('#selection .item');
 
+const maxShadowDistance = 8;
+
 let width = $selection.css('width').replace(/[^-\d\.]/g, '');
 let height = $selection.css('height').replace(/[^-\d\.]/g, '');
 let maxExtension = Math.min(width, height) / 2;
 
 $selection.click(event => {
-    let shadowX = (Math.random() - 0.5) * 10;
-    let shadowY = (Math.random() - 0.5) * 10;
-    // interpolate random between [0.1, 0.5]
-    let alpha = Math.random() * (0.5 - 0.1) + 0.1;
+    // offsets from center of element
+    let dx = event.pageX - $selection.offset().left - width / 2;
+    let dy = event.pageY - $selection.offset().top - height / 2;
+
+    // convert to polar coordinates
+    let polar = cartesian2Polar(dx, dy);
+    // cap distance to max extension
+    let shadowDistance = Math.min(polar.distance, maxExtension);
+    // map extension [0, maxExtension] to [0, maxShadowDistance]
+    shadowDistance = shadowDistance / maxExtension * maxShadowDistance;
+
+    polar.distance = shadowDistance;
+    let cartesian = polar2Cartesian(polar.distance, polar.angle);
+    let shadowX = Math.round(cartesian.x);
+    let shadowY = Math.round(cartesian.y);
 
     $items.each((index, element) => {
         $(element).css('box-shadow',
