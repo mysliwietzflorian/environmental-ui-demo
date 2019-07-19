@@ -8,6 +8,17 @@ let height = $selection.css('height').replace(/[^-\d\.]/g, '');
 let maxExtension = Math.min(width, height) / 2;
 
 $selection.click(event => {
+    let shadowOffset = calculateShadowOffset(event);
+    let shadowX = Math.round(shadowOffset.x);
+    let shadowY = Math.round(shadowOffset.y);
+
+    $items.each((index, element) => {
+        $(element).css('box-shadow',
+            `${shadowX}px ${shadowY}px 5px rgba(0, 0, 0, 0.2)`);
+    });
+});
+
+function calculateShadowOffset(event) {
     // offsets from center of element
     let dx = event.pageX - $selection.offset().left - width / 2;
     let dy = event.pageY - $selection.offset().top - height / 2;
@@ -20,15 +31,8 @@ $selection.click(event => {
     shadowDistance = shadowDistance / maxExtension * maxShadowDistance;
 
     polar.distance = shadowDistance;
-    let cartesian = polar2Cartesian(polar.distance, polar.angle);
-    let shadowX = Math.round(cartesian.x);
-    let shadowY = Math.round(cartesian.y);
-
-    $items.each((index, element) => {
-        $(element).css('box-shadow',
-            `${shadowX}px ${shadowY}px 5px rgba(0, 0, 0, 0.2)`);
-    });
-});
+    return polar2Cartesian(polar.distance, polar.angle);
+}
 
 function cartesian2Polar(x, y) {
     return {
