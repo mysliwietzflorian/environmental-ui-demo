@@ -8,7 +8,8 @@ let maxExtension = Math.min(width, height);
 $selection.click(event => {
     let dx = (Math.random() - 0.5) * 10;
     let dy = (Math.random() - 0.5) * 10;
-    let alpha = Math.max(Math.random(), 0.5);
+    // interpolate random between [0.1, 0.5]
+    let alpha = Math.random() * (0.5 - 0.1) + 0.1;
 
     $items.each((index, element) => {
         $(element).css('box-shadow',
