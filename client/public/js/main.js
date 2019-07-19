@@ -7,7 +7,24 @@ let width = $selection.css('width').replace(/[^-\d\.]/g, '');
 let height = $selection.css('height').replace(/[^-\d\.]/g, '');
 let maxExtension = Math.min(width, height) / 2;
 
+let timer = null;
+let enableHandler = true;
+
 $selection.mousemove(event => {
+    if (!enableHandler) {
+        return;
+    }
+
+    handleMouseMove(event);
+    enableHandler = false;
+});
+
+timer = window.setInterval(() => {
+    enableHandler = true;
+    console.log('update');
+}, 250);
+
+function handleMouseMove() {
     let shadowOffset = calculateShadowOffset(event);
     let shadowX = Math.round(shadowOffset.x);
     let shadowY = Math.round(shadowOffset.y);
@@ -16,7 +33,7 @@ $selection.mousemove(event => {
         $(element).css('box-shadow',
             `${shadowX}px ${shadowY}px 5px rgba(0, 0, 0, 0.2)`);
     });
-});
+};
 
 function calculateShadowOffset(event) {
     // offsets from center of element
@@ -32,7 +49,7 @@ function calculateShadowOffset(event) {
 
     polar.distance = shadowDistance;
     return polar2Cartesian(polar.distance, polar.angle);
-}
+};
 
 function cartesian2Polar(x, y) {
     return {
