@@ -60,7 +60,15 @@ $(document).ready(function() {
         enableHandler = false;
     });
 
+    timer = window.setInterval(() => {
+        enableHandler = true;
+    }, 250);
+
     function updateImageData(data) {
+        filterGrayscale(data);
+    };
+
+    function filterGrayscale(data) {
         // Gray = 0.21R + 0.72G + 0.07B // Luminosity
         // Gray = (R + G + B) ÷ 3 // Average Brightness
         // Gray = 0.299R + 0.587G + 0.114B // rec601 standard
@@ -74,10 +82,6 @@ $(document).ready(function() {
             data[i+2] = gray;
         }
     };
-
-    timer = window.setInterval(() => {
-        enableHandler = true;
-    }, 250);
 
     function handleMouseMove(event) {
         let shadowOffset = calculateShadowOffset(event);
