@@ -3,7 +3,7 @@ const $items = $('#selection .item');
 
 let width = $selection.css('width').replace(/[^-\d\.]/g, '');
 let height = $selection.css('height').replace(/[^-\d\.]/g, '');
-let maxExtension = Math.min(width, height);
+let maxExtension = Math.min(width, height) / 2;
 
 $selection.click(event => {
     let shadowX = (Math.random() - 0.5) * 10;
