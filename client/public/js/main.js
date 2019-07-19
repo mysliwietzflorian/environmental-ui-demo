@@ -27,14 +27,15 @@ $(document).ready(function() {
         ctx.fillStyle = '#ccc';
         ctx.fillRect(0, 0, $canvas.width(), $canvas.height());
 
-        try {
-            const stream = await navigator.mediaDevices.getUserMedia(webcamConstants);
-            window.stream = stream;
-            $webcam[0].srcObject = stream;
-            $webcam.removeAttr('hidden');
-            $('#image-placeholder').attr('hidden', true);
-        } catch (e) {
-            console.error(`navigator.getUserMedia error: ${e.toString()}`);
+        if (navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia(webcamConstants)
+                .then((stream) => {
+                    $webcam[0].srcObject = stream;
+                    $webcam.removeAttr('hidden');
+                    $('#image-placeholder').attr('hidden', true);
+                }).catch(e => {
+                    console.error(`navigator.getUserMedia error: ${e.toString()}`);
+                });
         }
     })();
 
