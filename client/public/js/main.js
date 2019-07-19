@@ -61,6 +61,18 @@ $(document).ready(function() {
     });
 
     function updateImageData(data) {
+        // Gray = 0.21R + 0.72G + 0.07B // Luminosity
+        // Gray = (R + G + B) ÷ 3 // Average Brightness
+        // Gray = 0.299R + 0.587G + 0.114B // rec601 standard
+        // Gray = 0.2126R + 0.7152G + 0.0722B // ITU-R BT.709 standard
+        // Gray = 0.2627R + 0.6780G + 0.0593B // ITU-R BT.2100 standard
+
+        for (let i = 0; i < data.length; i+= 4) {
+            let gray = 0.21*data[i] + 0.72*data[i+1] + 0.07*data[i+2];
+            data[i] = gray;
+            data[i+1] = gray;
+            data[i+2] = gray;
+        }
     };
 
     timer = window.setInterval(() => {
