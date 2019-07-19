@@ -1,8 +1,8 @@
 const $selection = $('#selection');
 const $items = $('#selection .item');
 
-let width = $selection.css('width');
-let height = $selection.css('height');
+let width = $selection.css('width').replace(/[^-\d\.]/g, '');
+let height = $selection.css('height').replace(/[^-\d\.]/g, '');
 let maxExtension = Math.min(width, height);
 
 $selection.click(event => {
