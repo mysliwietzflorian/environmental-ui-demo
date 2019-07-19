@@ -1,5 +1,13 @@
 $(document).ready(function() {
 
+    const constraints = {
+        audio: false,
+        video: {
+            width: 120,
+            height: 90,
+        }
+    };
+
     const $selection = $('#selection');
     const $items = $('#selection .item');
 
@@ -12,6 +20,18 @@ $(document).ready(function() {
     let timer = null;
     let enableHandler = true;
 
+    (async function init() {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia(constraints);
+            window.stream = stream;
+            $('#webcam')[0].srcObject = stream;
+            $('#webcam').removeAttr('hidden');
+            $('#image-placeholder').attr('hidden', true);
+        } catch (e) {
+            console.error(`navigator.getUserMedia error: ${e.toString()}`);
+        }
+    });
+
     $selection.mousemove(event => {
         if (!enableHandler) {
             return;
@@ -23,7 +43,6 @@ $(document).ready(function() {
 
     timer = window.setInterval(() => {
         enableHandler = true;
-        console.log('update');
     }, 250);
 
     function handleMouseMove() {

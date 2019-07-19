@@ -25,10 +25,23 @@
     <![endif]-->
 
     <div class="container container-narrow">
-        <h1>environmental-ui</h1>
-        <h2>
-            A basic demo application to experiment with Environmental UI Concepts.
-        </h2>
+        <div class="row">
+            <div class="col-8">
+                <h1>environmental-ui</h1>
+                <h2>
+                    A basic demo application to experiment with Environmental UI Concepts.
+                </h2>
+            </div>
+
+            <div class="col-4">
+                <h3>Webcam</h3>
+                <div class="video-wrap">
+                    <img id="image-placeholder" height="90"
+                        src="https://via.placeholder.com/120x90?text=%20"/>
+                    <video id="webcam" height="90" playsinline autoplay hidden></video>
+                </div>
+            </div>
+        </div>
 
         <div id="selection" class="row">
             <div class="col-6">
