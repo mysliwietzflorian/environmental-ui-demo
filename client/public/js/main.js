@@ -23,6 +23,10 @@ $(document).ready(function() {
     let enableHandler = true;
 
     (async function init() {
+        let ctx = $canvas[0].getContext('2d');
+        ctx.fillStyle = '#ccc';
+        ctx.fillRect(0, 0, $canvas.width(), $canvas.height());
+
         try {
             const stream = await navigator.mediaDevices.getUserMedia(webcamConstants);
             window.stream = stream;
@@ -33,6 +37,12 @@ $(document).ready(function() {
             console.error(`navigator.getUserMedia error: ${e.toString()}`);
         }
     })();
+
+    $selection.click(event => {
+        let context = $canvas[0].getContext('2d');
+        context.drawImage($webcam[0], 0, 0,
+            webcamConstants.video.width, webcamConstants.video.height);
+    });
 
     $selection.mousemove(event => {
         if (!enableHandler) {
