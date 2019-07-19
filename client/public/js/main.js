@@ -30,7 +30,7 @@ $(document).ready(function() {
         } catch (e) {
             console.error(`navigator.getUserMedia error: ${e.toString()}`);
         }
-    });
+    })();
 
     $selection.mousemove(event => {
         if (!enableHandler) {
