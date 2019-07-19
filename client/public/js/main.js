@@ -7,7 +7,7 @@ let width = $selection.css('width').replace(/[^-\d\.]/g, '');
 let height = $selection.css('height').replace(/[^-\d\.]/g, '');
 let maxExtension = Math.min(width, height) / 2;
 
-$selection.click(event => {
+$selection.mousemove(event => {
     let shadowOffset = calculateShadowOffset(event);
     let shadowX = Math.round(shadowOffset.x);
     let shadowY = Math.round(shadowOffset.y);
