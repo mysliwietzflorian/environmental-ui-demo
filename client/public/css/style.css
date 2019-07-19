@@ -1,0 +1,7 @@
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.container-narrow {
+    max-width: 600px !important;
+}
