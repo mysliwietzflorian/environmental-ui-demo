@@ -40,9 +40,15 @@ $(document).ready(function() {
     })();
 
     $selection.click(event => {
+        let width = webcamConstants.video.width;
+        let height = webcamConstants.video.height;
+
         let context = $canvas[0].getContext('2d');
-        context.drawImage($webcam[0], 0, 0,
-            webcamConstants.video.width, webcamConstants.video.height);
+        context.drawImage($webcam[0], 0, 0, width, height);
+
+        var imageData = context.getImageData(0, 0, width, height);
+        updateImageData(imageData.data);
+        context.putImageData(imageData, 0, 0);
     });
 
     $selection.mousemove(event => {
@@ -53,6 +59,9 @@ $(document).ready(function() {
         handleMouseMove(event);
         enableHandler = false;
     });
+
+    function updateImageData(data) {
+    };
 
     timer = window.setInterval(() => {
         enableHandler = true;
