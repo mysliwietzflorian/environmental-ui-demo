@@ -13,6 +13,6 @@ $selection.click(event => {
 
     $items.each((index, element) => {
         $(element).css('box-shadow',
-            `${shadowX}px ${shadowY}px 5px rgba(0, 0, 0, ${alpha})`);
+            `${shadowX}px ${shadowY}px 5px rgba(0, 0, 0, 0.2)`);
     });
 });
