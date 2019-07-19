@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    const constraints = {
+    const webcamConstants = {
         audio: false,
         video: {
             width: 120,
@@ -10,6 +10,8 @@ $(document).ready(function() {
 
     const $selection = $('#selection');
     const $items = $('#selection .item');
+    const $webcam = $('#webcam');
+    const $canvas = $('#canvas');
 
     const maxShadowDistance = 8;
 
@@ -22,10 +24,10 @@ $(document).ready(function() {
 
     (async function init() {
         try {
-            const stream = await navigator.mediaDevices.getUserMedia(constraints);
+            const stream = await navigator.mediaDevices.getUserMedia(webcamConstants);
             window.stream = stream;
-            $('#webcam')[0].srcObject = stream;
-            $('#webcam').removeAttr('hidden');
+            $webcam[0].srcObject = stream;
+            $webcam.removeAttr('hidden');
             $('#image-placeholder').attr('hidden', true);
         } catch (e) {
             console.error(`navigator.getUserMedia error: ${e.toString()}`);
@@ -45,7 +47,7 @@ $(document).ready(function() {
         enableHandler = true;
     }, 250);
 
-    function handleMouseMove() {
+    function handleMouseMove(event) {
         let shadowOffset = calculateShadowOffset(event);
         let shadowX = Math.round(shadowOffset.x);
         let shadowY = Math.round(shadowOffset.y);
