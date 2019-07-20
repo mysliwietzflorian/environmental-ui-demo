@@ -46,7 +46,7 @@ $(document).ready(function() {
         let context = $canvas[0].getContext('2d');
         context.drawImage($webcam[0], 0, 0, width, height);
 
-        var imageData = context.getImageData(0, 0, width, height);
+        let imageData = context.getImageData(0, 0, width, height);
         updateImageData(imageData.data);
         context.putImageData(imageData, 0, 0);
     });
