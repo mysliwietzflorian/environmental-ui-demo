@@ -8,7 +8,7 @@ Choose one of the following options:
 - Change to server directory - `cd js-stack-boilerplate/server`.
 - Install dependencies - `npm install`.
 - Start the server - `npm start`.
-- Browse to `localhost:8080` to view the static website.
+- Browse to `https://localhost` to view the static website. (Use HTTPS)
 
 ## Dependencies
 

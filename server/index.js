@@ -1,31 +1,43 @@
 const express = require('express');
-const app = express();
-const path = require('path');
-
+const fs = require('fs');
+const http = require('http');
+const https = require('https');
 const os = require('os');
+
+const app = express();
 
 app.use(express.static(`${__dirname}/../client/public`));
 
-app.listen(8080);
+http.createServer((req, res) => {
+    res.writeHead(301, {'Location': 'https://' + req.headers.host + req.url});
+    res.end();
+}, app).listen(80);
 
-let networkInterfaceName = process.argv.length > 2 ?
-    process.argv[2] : 'WLAN';
-let externalIp = getIpAddress(networkInterfaceName);
+https.createServer({
+    key: fs.readFileSync('server.key'),
+    cert: fs.readFileSync('server.cert')
+}, app).listen(443, () => initializeServer(443));
 
-console.log('[INFO] Development server running!\n');
-console.log('Local:    http://localhost:8080');
+function initializeServer(port) {
+    let networkInterfaceName = process.argv.length > 2 ?
+        process.argv[2] : 'WLAN';
+    let externalIp = getIpAddress(networkInterfaceName);
 
-if (externalIp) {
-    console.log(`External: http://${getIpAddress(networkInterfaceName)}:8080`);
-} else {
-    console.warn(`External: Network interface name '${networkInterfaceName}' is not valid.`);
-    console.warn(`          Use one of the following as command line argument:\n`);
+    console.log('[INFO] Development server running!\n');
+    console.log(`Local:    https://localhost:${port}`);
 
-    let test = Object.keys(os.networkInterfaces()).forEach(value => {
-        console.log(`  - ${value}`);
-    });
+    if (externalIp) {
+        console.log(`External: https://${getIpAddress(networkInterfaceName)}:${port}`);
+    } else {
+        console.warn(`External: Network interface name '${networkInterfaceName}' is not valid.`);
+        console.warn(`          Use one of the following as command line argument:\n`);
+
+        let test = Object.keys(os.networkInterfaces()).forEach(value => {
+            console.log(`            - ${value}`);
+        });
+    }
+    console.log('\nUse Ctrl+C to quit this process');
 }
-console.log('\nUse Ctrl+C to quit this process');
 
 function getIpAddress(name) {
     let interface = os.networkInterfaces()[name];
