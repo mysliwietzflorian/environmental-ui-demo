@@ -147,13 +147,22 @@ $(document).ready(function() {
         return result;
     };
 
+    function updateShadows(offsets) {
+        let shadowOffsets = normalizeShadowOffset(offsets);
+        let shadowX = Math.round(shadowOffsets.x);
+        let shadowY = Math.round(shadowOffsets.y);
 
+        // TODO: update alpha value based on max brightness value
+        $('.item').each((index, element) => {
             $(element).css('box-shadow',
                 `${shadowX}px ${shadowY}px 5px rgba(0, 0, 0, 0.2)`);
         });
     };
 
+    function normalizeShadowOffset(offsets) {
         // convert to polar coordinates
+        let polar = cartesian2Polar(offsets.x, offsets.y);
+
         // cap distance to max extension
         let shadowDistance = Math.min(polar.distance, maxExtension);
         // map extension [0, maxExtension] to [0, maxShadowDistance]
