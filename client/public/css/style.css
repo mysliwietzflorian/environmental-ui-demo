@@ -3,10 +3,20 @@ body {
     color: black;
     background-color: rgb(244, 244, 244);
     transition: all 0.3s ease-in-out;
+
+    margin-top: 64px;
 }
 
 .container-narrow {
     max-width: 600px !important;
+}
+
+.display-wrapper {
+    padding: 32px 0;
+}
+
+.display-wrapper > * {
+    margin: 4px;
 }
 
 .item {
