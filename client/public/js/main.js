@@ -14,10 +14,8 @@ $(document).ready(function() {
     const $canvas = $('#canvas');
 
     const maxShadowDistance = 8;
-
-    let width = $selection.css('width').replace(/[^-\d\.]/g, '');
-    let height = $selection.css('height').replace(/[^-\d\.]/g, '');
-    let maxExtension = Math.min(width, height) / 2;
+    // TODO: redefine value of maxExtension
+    let maxExtension = 300;
 
     let timer = null;
     let enableHandler = true;
