@@ -20,6 +20,9 @@ $(document).ready(function() {
 
     (async function init() {
         let ctx = $canvas[0].getContext('2d');
+        // mirror canvas
+        ctx.translate($canvas.width(), 0);
+        ctx.scale(-1, 1);
         ctx.fillStyle = '#ccc';
         ctx.fillRect(0, 0, $canvas.width(), $canvas.height());
 
@@ -168,7 +171,7 @@ $(document).ready(function() {
 
     function updateShadows(offsets) {
         let shadowOffsets = normalizeShadowOffset(offsets);
-        let shadowX = Math.round(shadowOffsets.x);
+        let shadowX = - Math.round(shadowOffsets.x);
         let shadowY = Math.round(shadowOffsets.y);
 
         // TODO: update alpha value based on max brightness value
