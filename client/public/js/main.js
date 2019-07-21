@@ -139,7 +139,12 @@ $(document).ready(function() {
         }
     };
 
+    function convolveWithKernel(data, kernel) {
+        let result = 0;
+        for (let i = 0; i < kernel.length; i++) {
+            result += data[i] * kernel[i];
         }
+        return result;
     };
 
 
