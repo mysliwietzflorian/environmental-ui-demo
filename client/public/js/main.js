@@ -11,12 +11,17 @@ $(document).ready(function() {
     const $webcam = $('#webcam');
     const $canvas = $('#canvas');
 
+    // shadow constants
     const maxShadowDistance = 8;
     // TODO: redefine value of maxExtension
     let maxExtension = 300;
 
-    let timer = null;
+    // dark mode constants
     let inDarkMode = false;
+    let lightModeTriggerValue = 160;
+    let darkModeTriggerValue = 72;
+
+    let timer = null;
 
     (async function init() {
         let ctx = $canvas[0].getContext('2d');
@@ -154,9 +159,9 @@ $(document).ready(function() {
             maxBrightness = Math.max(maxBrightness, value);
         });
 
-        if (maxBrightness > 160) {
+        if (maxBrightness > lightModeTriggerValue) {
             setLightMode();
-        } else if (maxBrightness < 72) {
+        } else if (maxBrightness < darkModeTriggerValue) {
             setDarkMode();
         }
     };
@@ -174,7 +179,7 @@ $(document).ready(function() {
         let shadowX = - Math.round(shadowOffsets.x);
         let shadowY = Math.round(shadowOffsets.y);
 
-        // TODO: update alpha value based on max brightness value
+        // TODO: update alpha value based on brightness values
         $('.item').each((index, element) => {
             $(element).css('box-shadow',
                 `${shadowX}px ${shadowY}px 5px rgba(0, 0, 0, 0.2)`);
