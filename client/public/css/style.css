@@ -1,6 +1,8 @@
 body {
     font-family: 'Source Sans Pro', sans-serif;
+    color: black;
     background-color: rgb(244, 244, 244);
+    transition: all 0.3s ease-in-out;
 }
 
 .container-narrow {
