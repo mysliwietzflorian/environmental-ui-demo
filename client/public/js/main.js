@@ -65,6 +65,7 @@ $(document).ready(function() {
         filterGrayscale(imageData.data);
         context.putImageData(imageData, 0, 0);
 
+        return getBrightnessGradient(imageData.data, width, height);
     };
 
     function filterGrayscale(data) {
@@ -75,6 +76,25 @@ $(document).ready(function() {
             data[i+2] = gray; // blue
             data[i+3] = 255; // alpha
         }
+    };
+
+    function getBrightnessGradient(data, width, height) {
+        let regionAverageArray = calculateAverageForRegions(data, width, height);
+
+        checkMaxBrightness(regionAverageArray);
+
+        let xGradient = convolveWithKernel(regionAverageArray, [
+            -1, 0, 1,
+            -2, 0, 2,
+            -1, 0, 1
+        ]);
+        let yGradient = convolveWithKernel(regionAverageArray, [
+            1, 2, 1,
+            0, 0, 0,
+            -1, -2, -1
+        ]);
+
+        return {x: xGradient, y: yGradient};
     };
 
         }
