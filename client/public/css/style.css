@@ -36,3 +36,12 @@ body {
     transform: scale(1.2, 1.2);
 }
 
+body.dark-mode {
+    color: white;
+    background-color: rgb(33, 37, 43);
+}
+
+body.dark-mode .item {
+    background-color: black;
+    box-shadow: none;
+}
