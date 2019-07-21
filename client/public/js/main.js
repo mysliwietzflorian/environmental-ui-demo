@@ -126,7 +126,17 @@ $(document).ready(function() {
         return regionAverageArray;
     };
 
+    function checkMaxBrightness(regionAverageArray) {
+        maxBrightness = 0;
+        regionAverageArray.forEach(value => {
+            maxBrightness = Math.max(maxBrightness, value);
+        });
 
+        if (maxBrightness > 160) {
+            setLightMode();
+        } else if (maxBrightness < 72) {
+            setDarkMode();
+        }
     };
 
         }
