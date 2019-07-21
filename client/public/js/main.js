@@ -97,8 +97,34 @@ $(document).ready(function() {
         return {x: xGradient, y: yGradient};
     };
 
+    function calculateAverageForRegions(data, width, height) {
+        let widthPerRegion = width / 3;
+        let heightPerRegion = height / 3;
+        let regionAverageArray = [
+            0, 0, 0,
+            0, 0, 0,
+            0, 0, 0
+        ];
+
+        for (let y = 0; y < height; y++) {
+            for (let x = 0; x < width; x++) {
+
+                let dataIndex = (x + y * width) * 4;
+                let currentValue = data[dataIndex];
+
+                let regionX = Math.floor(x / widthPerRegion);
+                let regionY = Math.floor(y / heightPerRegion);
+
+                regionIndex = (regionX + regionY * 3);
+                regionAverageArray[regionIndex] += currentValue;
+            }
         }
 
+        regionAverageArray.forEach((value, index, array) => {
+            array[index] = value / (widthPerRegion * heightPerRegion);
+        });
+        return regionAverageArray;
+    };
 
 
     };
