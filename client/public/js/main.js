@@ -80,6 +80,7 @@ $(document).ready(function() {
     function getBrightnessGradient(data, width, height) {
         let regionAverageArray = calculateAverageForRegions(data, width, height);
 
+        displayRegionAverages(regionAverageArray);
         checkMaxBrightness(regionAverageArray);
 
         let xGradient = convolveWithKernel(regionAverageArray, [
@@ -123,6 +124,25 @@ $(document).ready(function() {
             array[index] = value / (widthPerRegion * heightPerRegion);
         });
         return regionAverageArray;
+    };
+
+    function displayRegionAverages(data) {
+        let width = $('#regions-display').width();
+        let height = $('#regions-display').height();
+
+        let regionWidth = width / 3;
+        let regionHeight = height / 3;
+        let ctx = $('#regions-display')[0].getContext('2d');
+
+        for (let i = 0; i < data.length; i++) {
+            ctx.fillStyle = `rgb(${data[i]}, ${data[i]}, ${data[i]})`;
+            ctx.fillRect(
+                (i % 3) * regionWidth,
+                Math.floor(i / 3) * regionHeight,
+                regionWidth,
+                regionHeight
+            );
+        }
     };
 
     function checkMaxBrightness(regionAverageArray) {
