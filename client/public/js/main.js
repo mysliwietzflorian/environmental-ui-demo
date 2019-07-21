@@ -27,7 +27,6 @@ $(document).ready(function() {
             navigator.mediaDevices.getUserMedia(webcamConstants)
                 .then((stream) => {
                     $webcam[0].srcObject = stream;
-                    $webcam.removeAttr('hidden');
                 }).catch(e => {
                     console.error(`navigator.getUserMedia error: ${e.toString()}`);
                 });
