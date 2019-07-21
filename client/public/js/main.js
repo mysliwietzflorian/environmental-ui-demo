@@ -11,15 +11,14 @@ $(document).ready(function() {
     const $webcam = $('#webcam');
     const $canvas = $('#canvas');
 
-    // shadow constants
+    // shadow variables
     const maxShadowDistance = 8;
-    // TODO: redefine value of maxExtension
-    let maxExtension = 300;
+    const maxExtension = 400;
 
-    // dark mode constants
+    // dark mode variables
     let inDarkMode = false;
-    let lightModeTriggerValue = 160;
-    let darkModeTriggerValue = 72;
+    const lightModeTriggerValue = 160;
+    const darkModeTriggerValue = 72;
 
     let timer = null;
 
