@@ -32,7 +32,6 @@ $(document).ready(function() {
                 .then((stream) => {
                     $webcam[0].srcObject = stream;
                     $webcam.removeAttr('hidden');
-                    $('#image-placeholder').attr('hidden', true);
                 }).catch(e => {
                     console.error(`navigator.getUserMedia error: ${e.toString()}`);
                 });
