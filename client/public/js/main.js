@@ -8,8 +8,6 @@ $(document).ready(function() {
         }
     };
 
-    const $selection = $('#selection');
-    const $items = $('#selection .item');
     const $webcam = $('#webcam');
     const $canvas = $('#canvas');
 
@@ -18,7 +16,7 @@ $(document).ready(function() {
     let maxExtension = 300;
 
     let timer = null;
-    let enableHandler = true;
+    let inDarkMode = false;
 
     (async function init() {
         let ctx = $canvas[0].getContext('2d');
@@ -36,7 +34,27 @@ $(document).ready(function() {
         }
     })();
 
-    $selection.click(event => {
+    timer = window.setInterval(() => {
+        let offsets = calculateShadowOffset();
+
+        // TODO: calculate real offset based on skewed camera format
+
+        if (!inDarkMode) {
+            updateShadows(offsets);
+        }
+    }, 100);
+
+    function setDarkMode() {
+        $('body').addClass('dark-mode');
+        inDarkMode = true;
+    };
+
+    function setLightMode() {
+        $('body').removeClass('dark-mode');
+        inDarkMode = false;
+    };
+
+    function calculateShadowOffset() {
         let width = webcamConstants.video.width;
         let height = webcamConstants.video.height;
 
