@@ -18,6 +18,7 @@ Choose one of the following options:
 - os (^0.1.1)
 
 ### Client
+- jQuery (3.4.1)
 - bootstrap grid (4.3.1)
 - ionicons (4.5.10-0)
 - fonts.googleapis: `Source Sans Pro`
