@@ -9,6 +9,7 @@ Choose one of the following options:
 - Install dependencies - `npm install`.
 - Start the server - `npm start`.
 - Browse to `https://localhost` to view the static website. (Use HTTPS)
+    - **Alternatively**: Use external IP address listed in server CLI to connect from a different device in the same network (e.g. `192.168.1.10`).
 
 ## Dependencies
 
