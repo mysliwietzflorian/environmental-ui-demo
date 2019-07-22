@@ -1,11 +1,11 @@
-# js-stack-boilerplate
+# environmental-ui-demo
 
 ## Quick start
 
 Choose one of the following options:
 
-- Clone the git repository - `git clone https://github.com/mysliwietzflorian/js-stack-boilerplate.git`.
-- Change to server directory - `cd js-stack-boilerplate/server`.
+- Clone the git repository - `git clone https://github.com/mysliwietzflorian/environmental-ui-demo.git`.
+- Navigate to server directory - `cd environmental-ui-demo/server`.
 - Install dependencies - `npm install`.
 - Start the server - `npm start`.
 - Browse to `https://localhost` to view the static website. (Use HTTPS)
@@ -21,6 +21,6 @@ Choose one of the following options:
 - ionicons (4.5.10-0)
 - fonts.googleapis: `Source Sans Pro`
 
-## Links
+## Further Reading
 
 - [The Environmental User Interface: A Quantum Leap Forward](https://bobburrough.com/public/post/environmentally_lit_interface_a_quantum_leap_forward/)
