@@ -39,20 +39,27 @@ $(document).ready(function() {
                     console.error(`navigator.getUserMedia error: ${e.toString()}`);
                 });
         }
+
+        startShadowUpdates();
     })();
 
-    timer = window.setInterval(() => {
-        let offsets = calculateShadowOffset();
 
-        // TODO: Add stopping mechanism
+    function startShadowUpdates() {
+        timer = window.setInterval(() => {
+            let offsets = calculateShadowOffset();
 
-        // adjust for effective offset based on skewed camera format
-        offsets.x *= $webcam.width() / $webcam.height();
+            // adjust for effective offset based on skewed camera format
+            offsets.x *= $webcam.width() / $webcam.height();
 
-        if (!inDarkMode) {
-            updateShadows(offsets);
-        }
-    }, 250);
+            if (!inDarkMode) {
+                updateShadows(offsets);
+            }
+        }, 250);
+    };
+
+    function stopShadowUpdates() {
+        clearInterval(timer);
+    };
 
     function setDarkMode() {
         $('body').addClass('dark-mode');
