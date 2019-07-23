@@ -49,9 +49,11 @@ $(document).ready(function() {
 
         if ($toggleUpdateButton.attr(attrName)) {
             $toggleUpdateButton.removeAttr(attrName);
+            $toggleUpdateButton.text('Stop Updates');
             startShadowUpdates();
         } else {
             $toggleUpdateButton.attr(attrName, true);
+            $toggleUpdateButton.text('Start Updates');
             stopShadowUpdates();
         }
     });
