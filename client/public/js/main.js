@@ -14,6 +14,7 @@ $(document).ready(function() {
     // shadow variables
     const maxShadowDistance = 8;
     const maxExtension = 400;
+    let lastShadowOffset = { x: 0, y: 0 };
 
     // dark mode variables
     let inDarkMode = false;
@@ -43,6 +44,7 @@ $(document).ready(function() {
     timer = window.setInterval(() => {
         let offsets = calculateShadowOffset();
 
+        // TODO: Add stopping mechanism
 
         // adjust for effective offset based on skewed camera format
         offsets.x *= $webcam.width() / $webcam.height();
@@ -180,11 +182,24 @@ $(document).ready(function() {
         let shadowX = - Math.round(shadowOffsets.x);
         let shadowY = Math.round(shadowOffsets.y);
 
-        // TODO: update alpha value based on brightness values
-        $('.item').each((index, element) => {
-            $(element).css('box-shadow',
-                `${shadowX}px ${shadowY}px 5px rgba(0, 0, 0, 0.2)`);
-        });
+        let hasChanged = false;
+        if (lastShadowOffset.x != shadowX) {
+            lastShadowOffset.x = shadowX;
+            hasChanged = true;
+        }
+        if (lastShadowOffset.y != shadowY) {
+            lastShadowOffset.y = shadowY;
+            hasChanged = true;
+        }
+
+        // update only if values change
+        if (hasChanged) {
+            // TODO: update alpha value based on brightness values
+            $('.item').each((index, element) => {
+                $(element).css('box-shadow',
+                    `${shadowX}px ${shadowY}px 5px rgba(0, 0, 0, 0.2)`);
+            });
+        }
     };
 
     function normalizeShadowOffset(offsets) {
