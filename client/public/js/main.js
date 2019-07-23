@@ -10,6 +10,7 @@ $(document).ready(function() {
 
     const $webcam = $('#webcam');
     const $canvas = $('#canvas');
+    const $toggleUpdateButton = $('#toggle-update-btn');
 
     // shadow variables
     const maxShadowDistance = 8;
@@ -43,6 +44,17 @@ $(document).ready(function() {
         startShadowUpdates();
     })();
 
+    $toggleUpdateButton.click(event => {
+        let attrName = 'stopped-updates';
+
+        if ($toggleUpdateButton.attr(attrName)) {
+            $toggleUpdateButton.removeAttr(attrName);
+            startShadowUpdates();
+        } else {
+            $toggleUpdateButton.attr(attrName, true);
+            stopShadowUpdates();
+        }
+    });
 
     function startShadowUpdates() {
         timer = window.setInterval(() => {
