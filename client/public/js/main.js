@@ -66,13 +66,15 @@ $(document).ready(function() {
             // adjust for effective offset based on skewed camera format
             offsets.x *= $webcam.width() / $webcam.height();
 
+            let shadowAlpha = 0.2;
             if (lastRegionAverage) {
                 displayRegionAverages(lastRegionAverage);
                 let maxBrightness = updateDarkMode(lastRegionAverage);
+                shadowAlpha = calculateShadowAlpha(lastRegionAverage, maxBrightness);
             }
 
             if (!inDarkMode) {
-                updateShadows(offsets);
+                updateShadows(offsets, shadowAlpha);
             }
         }, 250);
     };
@@ -162,6 +164,14 @@ $(document).ready(function() {
         return regionAverageArray;
     };
 
+    function convolveWithKernel(data, kernel) {
+        let result = 0;
+        for (let i = 0; i < kernel.length; i++) {
+            result += data[i] * kernel[i];
+        }
+        return result;
+    };
+
     function displayRegionAverages(data) {
         let width = $('#regions-display').width();
         let height = $('#regions-display').height();
@@ -196,15 +206,29 @@ $(document).ready(function() {
         return maxBrightness;
     };
 
-    function convolveWithKernel(data, kernel) {
-        let result = 0;
-        for (let i = 0; i < kernel.length; i++) {
-            result += data[i] * kernel[i];
+    function calculateShadowAlpha(lastRegionAverage, maxBrightness) {
+
+        let lightSources = lastRegionAverage.filter(value => value > maxBrightness * 0.8).length;
+
+        // interpolate from lightsources=[1; 3; 9] to alpha=[0.5; 0.2; 0.1]
+        let A, B, C, D;
+        if (lightSources > 3) {
+            A = 3;
+            B = 9;
+            C = 0.2;
+            D = 0.1;
+        } else {
+            A = 1;
+            B = 3;
+            C = 0.5;
+            D = 0.2;
         }
-        return result;
+
+        let alpha = (lightSources - A) / (B - A) * (D - C) + C;
+        return alpha;
     };
 
-    function updateShadows(offsets) {
+    function updateShadows(offsets, alpha) {
         let shadowOffsets = normalizeShadowOffset(offsets);
         let shadowX = - Math.round(shadowOffsets.x);
         let shadowY = Math.round(shadowOffsets.y);
@@ -221,10 +245,9 @@ $(document).ready(function() {
 
         // update only if values change
         if (hasChanged) {
-            // TODO: update alpha value based on brightness values
             $('.item').each((index, element) => {
                 $(element).css('box-shadow',
-                    `${shadowX}px ${shadowY}px 5px rgba(0, 0, 0, 0.2)`);
+                    `${shadowX}px ${shadowY}px 5px rgba(0, 0, 0, ${alpha})`);
             });
         }
     };
