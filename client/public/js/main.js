@@ -15,6 +15,7 @@ $(document).ready(function() {
     // shadow variables
     const maxShadowDistance = 8;
     const maxExtension = 400;
+    let lastRegionAverage = [];
     let lastShadowOffset = { x: 0, y: 0 };
 
     // dark mode variables
@@ -65,6 +66,11 @@ $(document).ready(function() {
             // adjust for effective offset based on skewed camera format
             offsets.x *= $webcam.width() / $webcam.height();
 
+            if (lastRegionAverage) {
+                displayRegionAverages(lastRegionAverage);
+                let maxBrightness = updateDarkMode(lastRegionAverage);
+            }
+
             if (!inDarkMode) {
                 updateShadows(offsets);
             }
@@ -111,9 +117,7 @@ $(document).ready(function() {
 
     function getBrightnessGradient(data, width, height) {
         let regionAverageArray = calculateAverageForRegions(data, width, height);
-
-        displayRegionAverages(regionAverageArray);
-        checkMaxBrightness(regionAverageArray);
+        lastRegionAverage = regionAverageArray;
 
         let xGradient = convolveWithKernel(regionAverageArray, [
             -1, 0, 1,
@@ -177,7 +181,7 @@ $(document).ready(function() {
         }
     };
 
-    function checkMaxBrightness(regionAverageArray) {
+    function updateDarkMode(regionAverageArray) {
         maxBrightness = 0;
         regionAverageArray.forEach(value => {
             maxBrightness = Math.max(maxBrightness, value);
@@ -188,6 +192,8 @@ $(document).ready(function() {
         } else if (maxBrightness < darkModeTriggerValue) {
             setDarkMode();
         }
+
+        return maxBrightness;
     };
 
     function convolveWithKernel(data, kernel) {
