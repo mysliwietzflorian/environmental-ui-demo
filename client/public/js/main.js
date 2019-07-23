@@ -43,7 +43,6 @@ $(document).ready(function() {
     timer = window.setInterval(() => {
         let offsets = calculateShadowOffset();
 
-        // TODO: take averages of several iterations to slow quick changing shadows
 
         // adjust for effective offset based on skewed camera format
         offsets.x *= $webcam.width() / $webcam.height();
@@ -51,7 +50,7 @@ $(document).ready(function() {
         if (!inDarkMode) {
             updateShadows(offsets);
         }
-    }, 100);
+    }, 250);
 
     function setDarkMode() {
         $('body').addClass('dark-mode');
