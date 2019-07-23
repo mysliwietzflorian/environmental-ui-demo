@@ -69,6 +69,18 @@ body.dark-mode {
     background-color: rgb(33, 37, 43);
 }
 
+body.dark-mode .button {
+    border-color: rgb(192, 192, 192);
+}
+
+body.dark-mode .button:hover {
+    border-color: rgb(216, 216, 216);
+}
+
+body.dark-mode .button:active {
+    border-color: rgb(240, 240, 240);
+}
+
 body.dark-mode .item {
     background-color: black;
     box-shadow: none;
