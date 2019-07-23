@@ -107,7 +107,7 @@ $(document).ready(function() {
 
     function filterGrayscale(data) {
         for (let i = 0; i < data.length; i+= 4) {
-            let gray = 0.21*data[i] + 0.72*data[i+1] + 0.07*data[i+2];
+            let gray = 0.21 * data[i] + 0.72 * data[i+1] + 0.07 * data[i+2];
             data[i] = gray; // red
             data[i+1] = gray; // green
             data[i+2] = gray; // blue
