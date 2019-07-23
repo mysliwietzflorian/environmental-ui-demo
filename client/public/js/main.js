@@ -23,7 +23,9 @@ $(document).ready(function() {
     const lightModeTriggerValue = 160;
     const darkModeTriggerValue = 72;
 
+    // timer interval variables
     let timer = null;
+    const updateRate = 250;
 
     (async function init() {
         let ctx = $canvas[0].getContext('2d');
@@ -76,7 +78,7 @@ $(document).ready(function() {
             if (!inDarkMode) {
                 updateShadows(offsets, shadowAlpha);
             }
-        }, 250);
+        }, updateRate);
     };
 
     function stopShadowUpdates() {
