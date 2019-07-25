@@ -101,6 +101,7 @@ $(document).ready(function() {
     function setDarkMode() {
         $('body').addClass('dark-mode');
         inDarkMode = true;
+        $('.item').css('box-shadow', 'none');
     };
 
     function setLightMode() {
