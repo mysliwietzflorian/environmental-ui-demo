@@ -16,6 +16,7 @@ $(document).ready(function() {
     // shadow variables
     let maxShadowDistance = 8;
     let maxExtension = 400;
+    let isAlphaAdjusting = false;
     let lastRegionAverage = [];
     let lastShadowOffset = { x: 0, y: 0 };
 
@@ -85,7 +86,10 @@ $(document).ready(function() {
             if (lastRegionAverage != null) {
                 displayRegionAverages(lastRegionAverage);
                 let maxBrightness = updateDarkMode(lastRegionAverage);
-                shadowAlpha = calculateShadowAlpha(lastRegionAverage, maxBrightness);
+
+                if (isAlphaAdjusting) {
+                    shadowAlpha = calculateShadowAlpha(lastRegionAverage, maxBrightness);
+                }
             }
 
             if (!inDarkMode) {
