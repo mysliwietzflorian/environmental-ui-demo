@@ -3,26 +3,29 @@ body {
     color: black;
     background-color: rgb(244, 244, 244);
     transition: all 0.3s ease-in-out;
-
     margin-top: 64px;
 }
 
-.container-narrow {
-    max-width: 600px !important;
+.center-block {
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
 }
 
-.display-wrapper {
+.wrapper {
+    max-width: 800px !important;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 12px;
+}
+
+.preferences {
+    grid-row: auto / span 2;
     padding: 32px 0;
 }
 
-.display-wrapper > * {
-    margin: 4px;
-}
-
-.center-block {
-  margin-left:auto;
-  margin-right:auto;
-  display:block;
+.preferences > * {
+    margin: 8px auto;
 }
 
 .button {
