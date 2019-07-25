@@ -265,6 +265,7 @@ $(document).ready(function() {
 
         // update only if values change
         if (hasChanged) {
+            $('#preview-offsets').html(`x=${shadowX}, y=${shadowY}`);
             $('.item').css('box-shadow',
                 `${shadowX}px ${shadowY}px 5px rgba(0, 0, 0, ${alpha})`);
         }

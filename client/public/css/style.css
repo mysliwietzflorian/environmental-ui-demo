@@ -28,6 +28,11 @@ body {
     margin: 8px auto;
 }
 
+#preview-offsets {
+    text-align: center;
+    padding: 8px auto;
+}
+
 .button {
     font-size: 0.8em;
     cursor: pointer;
