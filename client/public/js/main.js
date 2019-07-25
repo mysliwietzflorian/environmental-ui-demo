@@ -17,6 +17,8 @@ $(document).ready(function() {
     let maxShadowDistance = 8;
     let maxExtension = 400;
     let isAlphaAdjusting = true;
+    let lightSourceFactor = 0.6;
+    let updatedAlphaValue = false;
     let lastRegionAverage = [];
     let lastShadowOffset = { x: 0, y: 0 };
 
@@ -228,7 +230,7 @@ $(document).ready(function() {
 
     function calculateShadowAlpha(lastRegionAverage, maxBrightness) {
 
-        let lightSources = lastRegionAverage.filter(value => value > maxBrightness * 0.8).length;
+        let lightSources = lastRegionAverage.filter(value => value > maxBrightness * lightSourceFactor).length;
 
         // interpolate from lightsources=[1; 3; 9] to alpha=[0.5; 0.2; 0.1]
         let A, B, C, D;
@@ -264,10 +266,11 @@ $(document).ready(function() {
         }
 
         // update only if values change
-        if (hasChanged) {
+        if (hasChanged || updatedAlphaValue) {
             $('#preview-offsets').html(`x=${shadowX}, y=${shadowY}`);
             $('.item').css('box-shadow',
                 `${shadowX}px ${shadowY}px 5px rgba(0, 0, 0, ${alpha})`);
+            updatedAlphaValue = false;
         }
     };
 
