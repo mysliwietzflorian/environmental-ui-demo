@@ -40,11 +40,11 @@ $(document).ready(function() {
         // mirror canvas
         canvasCtx.translate($canvas.width(), 0);
         canvasCtx.scale(-1, 1);
-        canvasCtx.fillStyle = '#ccc';
+        canvasCtx.fillStyle = 'rgb(204, 204, 204)';
         canvasCtx.fillRect(0, 0, $canvas.width(), $canvas.height());
 
         let displayCtx = $regionsDisplay[0].getContext('2d');
-        displayCtx.fillStyle = '#ccc';
+        displayCtx.fillStyle = 'rgb(204, 204, 204)';
         displayCtx.fillRect(0, 0, $regionsDisplay.width(), $regionsDisplay.height());
     };
 
