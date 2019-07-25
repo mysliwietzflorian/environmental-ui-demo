@@ -142,9 +142,9 @@ $(document).ready(function() {
         lastRegionAverage = regionAverageArray;
 
         let xGradient = convolveWithKernel(regionAverageArray, [
-            -1, 0, 1,
-            -2, 0, 2,
-            -1, 0, 1
+            1, 0, -1,
+            2, 0, -2,
+            1, 0, -1
         ]);
         let yGradient = convolveWithKernel(regionAverageArray, [
             1, 2, 1,
@@ -250,7 +250,7 @@ $(document).ready(function() {
 
     function updateShadows(offsets, alpha) {
         let shadowOffsets = normalizeShadowOffset(offsets);
-        let shadowX = - Math.round(shadowOffsets.x);
+        let shadowX = Math.round(shadowOffsets.x);
         let shadowY = Math.round(shadowOffsets.y);
 
         let hasChanged = false;
