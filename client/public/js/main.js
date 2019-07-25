@@ -27,14 +27,24 @@ $(document).ready(function() {
     let timer = null;
     const updateRate = 250;
 
-    (async function init() {
-        let ctx = $canvas[0].getContext('2d');
-        // mirror canvas
-        ctx.translate($canvas.width(), 0);
-        ctx.scale(-1, 1);
-        ctx.fillStyle = '#ccc';
-        ctx.fillRect(0, 0, $canvas.width(), $canvas.height());
+    (function init() {
+        initCanvasElements();
+        initCameraDevice();
 
+        startShadowUpdates();
+    })();
+
+    function initCanvasElements() {
+        let canvasCtx = $canvas[0].getContext('2d');
+        // mirror canvas
+        canvasCtx.translate($canvas.width(), 0);
+        canvasCtx.scale(-1, 1);
+        canvasCtx.fillStyle = '#ccc';
+        canvasCtx.fillRect(0, 0, $canvas.width(), $canvas.height());
+
+    };
+
+    function initCameraDevice() {
         if (navigator.mediaDevices.getUserMedia) {
             navigator.mediaDevices.getUserMedia(webcamConstants)
                 .then((stream) => {
@@ -43,9 +53,8 @@ $(document).ready(function() {
                     console.error(`navigator.getUserMedia error: ${e.toString()}`);
                 });
         }
+    };
 
-        startShadowUpdates();
-    })();
 
     $toggleUpdateButton.click(event => {
         let attrName = 'stopped-updates';
