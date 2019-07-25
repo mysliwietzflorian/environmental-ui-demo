@@ -16,7 +16,7 @@ $(document).ready(function() {
     // shadow variables
     let maxShadowDistance = 8;
     let maxExtension = 400;
-    let isAlphaAdjusting = false;
+    let isAlphaAdjusting = true;
     let lastRegionAverage = [];
     let lastShadowOffset = { x: 0, y: 0 };
 
