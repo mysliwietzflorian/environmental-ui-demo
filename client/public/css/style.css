@@ -19,6 +19,12 @@ body {
     margin: 4px;
 }
 
+.center-block {
+  margin-left:auto;
+  margin-right:auto;
+  display:block;
+}
+
 .button {
     font-size: 0.8em;
     cursor: pointer;
