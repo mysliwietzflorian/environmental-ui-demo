@@ -14,19 +14,19 @@ $(document).ready(function() {
     const $toggleUpdateButton = $('#toggle-update-btn');
 
     // shadow variables
-    const maxShadowDistance = 8;
-    const maxExtension = 400;
+    let maxShadowDistance = 8;
+    let maxExtension = 400;
     let lastRegionAverage = [];
     let lastShadowOffset = { x: 0, y: 0 };
 
     // dark mode variables
     let inDarkMode = false;
-    const lightModeTriggerValue = 160;
-    const darkModeTriggerValue = 72;
+    let lightModeTriggerValue = 160;
+    let darkModeTriggerValue = 72;
 
     // timer interval variables
     let timer = null;
-    const updateRate = 250;
+    let updateRate = 250;
 
     (function init() {
         initCanvasElements();
