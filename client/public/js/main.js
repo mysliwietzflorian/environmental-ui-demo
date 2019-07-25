@@ -82,7 +82,7 @@ $(document).ready(function() {
             offsets.x *= $webcam.width() / $webcam.height();
 
             let shadowAlpha = 0.2;
-            if (lastRegionAverage) {
+            if (lastRegionAverage != null) {
                 displayRegionAverages(lastRegionAverage);
                 let maxBrightness = updateDarkMode(lastRegionAverage);
                 shadowAlpha = calculateShadowAlpha(lastRegionAverage, maxBrightness);
