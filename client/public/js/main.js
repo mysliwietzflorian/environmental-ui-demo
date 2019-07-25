@@ -10,6 +10,7 @@ $(document).ready(function() {
 
     const $webcam = $('#webcam');
     const $canvas = $('#canvas');
+    const $regionsDisplay = $('#regions-display');
     const $toggleUpdateButton = $('#toggle-update-btn');
 
     // shadow variables
@@ -42,6 +43,9 @@ $(document).ready(function() {
         canvasCtx.fillStyle = '#ccc';
         canvasCtx.fillRect(0, 0, $canvas.width(), $canvas.height());
 
+        let displayCtx = $regionsDisplay[0].getContext('2d');
+        displayCtx.fillStyle = '#ccc';
+        displayCtx.fillRect(0, 0, $regionsDisplay.width(), $regionsDisplay.height());
     };
 
     function initCameraDevice() {
