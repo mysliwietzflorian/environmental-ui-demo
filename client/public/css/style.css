@@ -28,9 +28,22 @@ body {
     margin: 8px auto;
 }
 
+.preferences-group {
+    margin: 40px auto;
+}
+
 #preview-offsets {
     text-align: center;
     padding: 8px auto;
+}
+
+.slider {
+    margin-bottom: 32px;
+}
+
+.slider .slider__input-value {
+    min-width: 48px;
+    text-align: center;
 }
 
 .button {
@@ -41,8 +54,8 @@ body {
     padding: calc(0.375em - 1px) 0.75em;
     text-align: center;
     white-space: nowrap;
-    border-radius: 4px;
     border: 1px solid rgb(160, 160, 160);
+    border-radius: 4px;
 }
 
 .button:hover {

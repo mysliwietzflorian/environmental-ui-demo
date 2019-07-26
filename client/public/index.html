@@ -37,7 +37,42 @@
             <canvas id="canvas" class="center-block" width="120" height="90"></canvas>
             <canvas id="regions-display" class="center-block" width="120" height="90"></canvas>
             <pre id="preview-offsets">x=0, y=0</pre>
-            <div id="toggle-update-btn" class="button center-block">Stop Updates</div>
+            <div id="toggle-update-btn" class="button center-block">Stop updates</div>
+
+            <div class="preferences-group">
+                <div class="slider">
+                    <label for="timer-update-range">Timer update rate (ms)</label>
+                    <div class="d-flex">
+                        <input id="timer-update-rate" class="flex-grow-1" type="range"
+                            min="100" max="2000" step="50" value="250" autocomplete="off">
+                        <span class="slider__input-value"></span>
+                    </div>
+                </div>
+                <div class="slider">
+                    <label for="max-shadow-distance">Maximum shadow distance (px)</label>
+                    <div class="d-flex">
+                        <input id="max-shadow-distance" class="flex-grow-1" type="range"
+                            min="0" max="32" value="8" autocomplete="off">
+                        <span class="slider__input-value"></span>
+                    </div>
+                </div>
+                <div class="slider">
+                    <label for="light-mode-trigger">Light-Mode trigger value</label>
+                    <div class="d-flex">
+                        <input id="light-mode-trigger" class="flex-grow-1" type="range"
+                            min="0" max="255" value="160" autocomplete="off">
+                        <span class="slider__input-value"></span>
+                    </div>
+                </div>
+                <div class="slider">
+                    <label for="dark-mode-trigger">Dark-Mode trigger value</label>
+                    <div class="d-flex">
+                        <input id="dark-mode-trigger" class="flex-grow-1" type="range"
+                            min="0" max="255" value="72" autocomplete="off">
+                        <span class="slider__input-value"></span>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div>
