@@ -77,6 +77,7 @@ $(document).ready(function() {
             }
         });
 
+        $('input').attr('autocomplete', 'off');
 
         $('.slider').each((index, item) => {
             let input = $(item).find('input');
