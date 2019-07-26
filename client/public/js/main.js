@@ -105,6 +105,9 @@ $(document).ready(function() {
             darkModeTriggerValue = $(event.target).val();
         });
 
+        $('#is-alpha-adjusting').change(event => {
+            isAlphaAdjusting = $(event.target).prop('checked');
+        });
     };
 
     function startShadowUpdates() {
