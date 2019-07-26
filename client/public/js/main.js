@@ -108,6 +108,11 @@ $(document).ready(function() {
         $('#is-alpha-adjusting').change(event => {
             isAlphaAdjusting = $(event.target).prop('checked');
         });
+
+        $('#light-source-factor').change(event => {
+            lightSourceFactor = $(event.target).val();
+            updatedAlphaValue = true;
+        });
     };
 
     function startShadowUpdates() {
