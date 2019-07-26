@@ -34,6 +34,7 @@ $(document).ready(function() {
     (function init() {
         initCanvasElements();
         initCameraDevice();
+        addEventListeners();
 
         startShadowUpdates();
     })();
@@ -62,20 +63,48 @@ $(document).ready(function() {
         }
     };
 
+    function addEventListeners() {
+        $toggleUpdateButton.click(event => {
+            let attrName = 'stopped-updates';
+            if ($toggleUpdateButton.attr(attrName)) {
+                $toggleUpdateButton.removeAttr(attrName);
+                $toggleUpdateButton.text('Stop updates');
+                startShadowUpdates();
+            } else {
+                $toggleUpdateButton.attr(attrName, true);
+                $toggleUpdateButton.text('Start updates');
+                stopShadowUpdates();
+            }
+        });
 
-    $toggleUpdateButton.click(event => {
-        let attrName = 'stopped-updates';
 
-        if ($toggleUpdateButton.attr(attrName)) {
-            $toggleUpdateButton.removeAttr(attrName);
-            $toggleUpdateButton.text('Stop Updates');
-            startShadowUpdates();
-        } else {
-            $toggleUpdateButton.attr(attrName, true);
-            $toggleUpdateButton.text('Start Updates');
+        $('.slider').each((index, item) => {
+            let input = $(item).find('input');
+            input.on('input', event => {
+                $(item).find('.slider__input-value').html($(event.target).val());
+            });
+            input.trigger('input');
+        });
+
+        $('#timer-update-rate').change(event => {
+            updateRate = $(event.target).val();
             stopShadowUpdates();
-        }
-    });
+            startShadowUpdates();
+        });
+
+        $('#max-shadow-distance').change(event => {
+            maxShadowDistance = $(event.target).val();
+        });
+
+        $('#light-mode-trigger').change(event => {
+            lightModeTriggerValue = $(event.target).val();
+        });
+
+        $('#dark-mode-trigger').change(event => {
+            darkModeTriggerValue = $(event.target).val();
+        });
+
+    };
 
     function startShadowUpdates() {
         timer = window.setInterval(() => {
