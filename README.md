@@ -1,5 +1,9 @@
 # environmental-ui-demo
 
+<p align="center">
+    <img alt="demonstration overview" src="doc/img/overview-01.png">
+</p>
+
 ## Quick start
 
 Choose one of the following options:
