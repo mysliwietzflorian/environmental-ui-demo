@@ -75,3 +75,15 @@ However, we can take a guess at the size of a light source by counting regions w
 
 The usage of variable shadow softness can be user-toggled with the checkbox "**Adjust alpha value of shadows**". If disabled, the alpha value of the shadow will be constant. On the other hand, if that feature is enabled the number of light sources based on the average regions (1 to 9 light sources are possible) will be extracted. A region will be recognized as a light source if the value of that region is at least `lightSourceFactor`% of the region with the maximum brightness. That variable can be adjusted with the slider "**Light source factor**".
 
+## Criticism of environmental UI concepts
+
+**Performance** - The biggest problem with this kind of UI concept has to do with performance issues on low-end devices. As the video stream needs to be analyzed and processed and - probably even more severe - the shadow draw calls are repeated many times (often several per second) the performance will be the bottleneck for widespread web and native utilization of this concept.
+
+**Battery life** - As a lot of energy is used to drive this kind of user interface the battery of mobile devices will suffer massively. Another side effect is that the device can get quite hot over time and in extreme cases damage it permanently.
+
+**Privacy** - The application needs user permissions to access the camera and at the moment no security system prevents an UI library to use streamed video data for a different purpose. Maybe in the future an operating system could provide information directly about the surrounding light sources in order to act against this problem.
+
+**Hardware** - Currently, no mobile device would be able to work extensively good with that kind of UI. The battery consumption is way too high and the device would have to be fitted with a camera capable of capturing a greater angle of the view. Both of these problems could be conquered if manufacturers saw a potential for a market within these technologies.
+
+**Benefits** - What are the real benefits of such a user interface? This question could also be applied to our modern UI design systems in general and one answer could be to increase the expressiveness of a creative designer. Moreover, any visual quality including glitter, reflection, translucency, carbon fiber, pearlescence, iridescence, decalescence, illumination, or other interesting material properties can be depicted [[1]](https://bobburrough.com/public/post/surely_you_cant_be_serious_bob/#do-we-really-need-this-how-is-this-useful).
+
