@@ -26,6 +26,12 @@ Choose one of the following options:
 - bootstrap grid (4.3.1)
 - fonts.googleapis: `Source Sans Pro`
 
+## Caution
+
+Usage of this demo on mobile devices for an extended period can harm it permanently. Lower the "Timer update rate" on the slider only to an appropriate amount and use with caution.
+
+DO NOT leave the device running in this mode for a long time.
+
 ## Further Reading
 
 - [The Environmental User Interface: A Quantum Leap Forward](https://bobburrough.com/public/post/environmentally_lit_interface_a_quantum_leap_forward/)
