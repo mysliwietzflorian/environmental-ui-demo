@@ -2,6 +2,13 @@
 
 ## Project structure
 
+The project consists of two different components: a server and a client component. The server serves static client files via HTTPS protocol while the client contains the main logic of the application.
+
+The whole business logic is mainly written in these three files:
+- index.html
+- style.css
+- main.js
+
 ```
 environmental-ui-demo
 │   .gitignore
