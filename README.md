@@ -4,6 +4,16 @@
     <img alt="demonstration overview" src="doc/img/overview-01.png">
 </p>
 
+## Caution
+
+Usage of this demo on mobile devices for an extended period can harm it permanently. Lower the "Timer update rate" on the slider only to an appropriate amount and use with caution.
+
+DO NOT leave the device running in this mode for a long time.
+
+## Implementation details
+
+To find out more about the implementation details take a look at the documentation [here](./doc/implementation.md).
+
 ## Quick start
 
 Choose one of the following options:
@@ -25,14 +35,6 @@ Choose one of the following options:
 - jQuery (3.4.1)
 - bootstrap grid (4.3.1)
 - fonts.googleapis: `Source Sans Pro`
-
-To find out more about the implementation details take a look at the documentation [here](./doc/implementation.md).
-
-## Caution
-
-Usage of this demo on mobile devices for an extended period can harm it permanently. Lower the "Timer update rate" on the slider only to an appropriate amount and use with caution.
-
-DO NOT leave the device running in this mode for a long time.
 
 ## Further Reading
 
