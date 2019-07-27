@@ -87,3 +87,11 @@ The usage of variable shadow softness can be user-toggled with the checkbox "**A
 
 **Benefits** - What are the real benefits of such a user interface? This question could also be applied to our modern UI design systems in general and one answer could be to increase the expressiveness of a creative designer. Moreover, any visual quality including glitter, reflection, translucency, carbon fiber, pearlescence, iridescence, decalescence, illumination, or other interesting material properties can be depicted [[1]](https://bobburrough.com/public/post/surely_you_cant_be_serious_bob/#do-we-really-need-this-how-is-this-useful).
 
+Another argument for this kind of UI can be the natural changing between Dark and Light Mode. Instead of defining night filters manually or time-based this concept can help to prevent problems with other options. Consider the following situations:
+
+- The device switches automatically (time-based) to Dark Mode, although, the user sits in a well-lit room and has no needs for a night filter.
+
+- The user sits in a dark room and wants to respond to a message. As it is still daytime the device will be in Light Mode and shine directly in the face of the user.
+
+While environmentally lit UI can solve these problems partly, they are definitely still prone to some errors. In these circumstances a manual switch to Dark or Light Mode should always be provided to a user.
+
