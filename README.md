@@ -26,6 +26,8 @@ Choose one of the following options:
 - bootstrap grid (4.3.1)
 - fonts.googleapis: `Source Sans Pro`
 
+To find out more about the implementation details take a look at the documentation [here](./doc/implementation.md).
+
 ## Caution
 
 Usage of this demo on mobile devices for an extended period can harm it permanently. Lower the "Timer update rate" on the slider only to an appropriate amount and use with caution.
