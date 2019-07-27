@@ -31,3 +31,21 @@ The update loop is powered by the [`setInterval()`](https://developer.mozilla.or
 
 Noteworthy is, that the actual redrawing of the shadow only happens if the pixel offsets of the shadows change in comparison to the frames before and the application is not in Dark Mode.
 
+## Shadow properties
+
+The shadow created for UI-elements can be defined with a few simple variables. While we have already covered shadow offsets from the gradients (more or less the direction of the shadows) the effective distances in pixels still leave some explanation open.
+
+Here two variables come into play:
+- `maxShadowDistance` defines the maximum amount of pixels the shadow can be away from the inner UI-element.
+- `maxExtension` is a quantity for the number calculated in the gradient value that complies with the maximum distance for the result. All gradients bigger than `maxExtension` will have a distance of `maxShadowDistance` pixels from the UI-elements.
+
+Therefore, the initial gradient offsets will be normalized using the following process:
+
+- Convert the gradient offset coordinates (x and y) to polar coordinates (distance, angle).
+- Limit the gradient distance to `maxExtension`.
+- Linear interpolate the gradient distance to a value between 0 and `maxShadowDistance`. The result is the distance for the pixel offsets from the UI-elements.
+- Convert the pixel distance and the gradient angle back to the resulting cartesian pixel offsets.
+- Lastly, the offsets will be rounded to the nearest integer.
+
+The slider "**Maximum shadow distance**" adjusts the shadow's coordinates for all UI-elements.
+
