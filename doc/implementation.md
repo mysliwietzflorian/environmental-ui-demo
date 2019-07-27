@@ -49,3 +49,14 @@ Therefore, the initial gradient offsets will be normalized using the following p
 
 The slider "**Maximum shadow distance**" adjusts the shadow's coordinates for all UI-elements.
 
+## Dark Mode
+
+Dark Mode shall be utilized automatically if the space around the user is not well lit. This does not mean that the UI-elements are just dark and one would need an external light to read and understand the UI, but rather the eyes should not be exposed to a lot of bright light from the display. To be able to see the elements in a natural way specific parts of the UI (like the font) can be made self-luminous to be legible.
+
+This behavior can be compared to a skyline of a town:
+- As the sunlight shines all buildings can be seen perfectly.
+- At dusk the light will be less and less intense while structures are still well defined.
+- At nightfall street lanterns and the lights in the windows will be visible and as a result the skyline is still perceptible. The view changes in a way that the end-user can predict.
+
+That is why Dark Mode is triggered when all regions of the current frame fall below a defined threshold. That value can be manipulated with the slider "**Dark-Mode trigger value**". To have a stable color theme on environments with small or frequent changes of light the value to trigger Light Mode again should be set higher than the other threshold and can be adjusted with the slider "**Light-Mode trigger value**". If the values of either slider is set to the corresponding extreme, a color theme can be established permanently without changing other logic.
+
