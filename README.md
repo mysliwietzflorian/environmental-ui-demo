@@ -34,4 +34,6 @@ DO NOT leave the device running in this mode for a long time.
 
 ## Further Reading
 
+The original concept comes from Bob Burrough and his blogposts and videos:
 - [The Environmental User Interface: A Quantum Leap Forward](https://bobburrough.com/public/post/environmentally_lit_interface_a_quantum_leap_forward/)
+- [Common Questions About Environmental User Interfaces](https://bobburrough.com/public/post/surely_you_cant_be_serious_bob/)
