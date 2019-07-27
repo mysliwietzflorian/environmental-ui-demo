@@ -9,7 +9,7 @@ Choose one of the following options:
 - Install dependencies - `npm install`.
 - Start the server - `npm start`.
 - Browse to `https://localhost` to view the static website. (Use HTTPS)
-    - **Alternatively**: Use external IP address listed in server CLI to connect from a different device in the same network (e.g. `192.168.1.10`).
+    - **Alternatively**: Use external IP address listed in server CLI to connect from a different device (other PC or mobile device) in the same network (e.g. `192.168.1.10`).
 
 ## Dependencies
 
@@ -20,7 +20,6 @@ Choose one of the following options:
 ### Client
 - jQuery (3.4.1)
 - bootstrap grid (4.3.1)
-- ionicons (4.5.10-0)
 - fonts.googleapis: `Source Sans Pro`
 
 ## Further Reading
