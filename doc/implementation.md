@@ -60,3 +60,18 @@ This behavior can be compared to a skyline of a town:
 
 That is why Dark Mode is triggered when all regions of the current frame fall below a defined threshold. That value can be manipulated with the slider "**Dark-Mode trigger value**". To have a stable color theme on environments with small or frequent changes of light the value to trigger Light Mode again should be set higher than the other threshold and can be adjusted with the slider "**Light-Mode trigger value**". If the values of either slider is set to the corresponding extreme, a color theme can be established permanently without changing other logic.
 
+### Soft and hard shadows
+
+As described in the Wikipedia article about [hard and soft light](https://en.wikipedia.org/wiki/Hard_and_soft_light) the following aspects about shading can be said:
+
+> The hardness or softness of light depends mostly on the following two factors:
+- Distance. The closer the light source, the softer it becomes.  
+- Size of light source. The larger the source, the softer it becomes.  
+>
+>*(Extract from [Wikipedia - Hard and soft light](https://en.wikipedia.org/wiki/Hard_and_soft_light))*
+
+From the input data alone the application cannot directly find information about the distance of the light source, so this part is not applied here.
+However, we can take a guess at the size of a light source by counting regions which are reasonable well lit, e.g. have a high enough grayscale value. This threshold is defined by a fixed percentage of the maximum brightness. The more sources are found, the softer the shadows should be and, consequently, the lower the alpha value must be. This proportion is not implemented linearly but leans to the softer shadows for visual appearance reasons.
+
+The usage of variable shadow softness can be user-toggled with the checkbox "**Adjust alpha value of shadows**". If disabled, the alpha value of the shadow will be constant. On the other hand, if that feature is enabled the number of light sources based on the average regions (1 to 9 light sources are possible) will be extracted. A region will be recognized as a light source if the value of that region is at least `lightSourceFactor`% of the region with the maximum brightness. That variable can be adjusted with the slider "**Light source factor**".
+
