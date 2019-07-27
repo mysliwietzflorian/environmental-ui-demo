@@ -59,6 +59,12 @@ As soon as the user grants permissions to use the camera device, a stream is cap
 - Calculate region averages for 9 regions (3x3 matrix)
 - Calculate middle brightness gradient for these regions
 
+### Mirror image
+
+The mirroring effect is achieved with the scaling method of the canvas element. For further information take a look at the [MDN-Documentation](https://developer.mozilla.org/de/docs/Web/API/CanvasRenderingContext2D/scale).
+
+This transformation is applied in order to appear like a normal front camera instead of a rotated view of the scene. Therefore, the calculations later become easier and more readable and the user is not confused with this behavior.
+
 ## Update loop
 
 A user can define the update rate of the shadows with the slider "**Timer update rate**". Every interval of this value an image from the video stream is captured and the update procedure is executed. With the button "Stop updates" the user can toggle the execution of said updates.
