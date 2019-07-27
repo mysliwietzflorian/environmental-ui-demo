@@ -69,6 +69,15 @@ This transformation is applied in order to appear like a normal front camera ins
 
 Only brightness values of the source image are necessary for this application. To calculate these the [luminosity method](https://en.wikipedia.org/wiki/Grayscale#Converting_color_to_grayscale) is used.
 
+### Region averages
+
+The image is split into 9 equal-sized regions, 3 in horizontal and 3 in vertical direction. Within these regions an average-filter is applied: The average of all grayscale values in a region is calculated and written to a 1-dimensional array. This array is used in multiple ways:
+
+- to display these regions in a canvas element
+- to calculate the initial ratio of x- and y-direction for the shadow offsets
+- to toggle Dark Mode based on the maximum brightness value of one region
+- to adjust softness level of the shadows
+
 ## Update loop
 
 A user can define the update rate of the shadows with the slider "**Timer update rate**". Every interval of this value an image from the video stream is captured and the update procedure is executed. With the button "Stop updates" the user can toggle the execution of said updates.
