@@ -1,10 +1,10 @@
 {
-  "name": "js-stack-boilerplate",
+  "name": "environmental-ui-demo",
   "version": "1.0.0",
-  "description": "A basic boilerplate for a static website served via expressJs.",
+  "description": "A basic demonstration of an environmentally lit user interface.",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mysliwietzflorian/js-stack-boilerplate.git"
+    "url": "git://github.com/mysliwietzflorian/environmental-ui-demo.git"
   },
   "author": {
     "name": "Florian Mysliwietz",
