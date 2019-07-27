@@ -65,6 +65,10 @@ The mirroring effect is achieved with the scaling method of the canvas element. 
 
 This transformation is applied in order to appear like a normal front camera instead of a rotated view of the scene. Therefore, the calculations later become easier and more readable and the user is not confused with this behavior.
 
+### Grayscale filter
+
+Only brightness values of the source image are necessary for this application. To calculate these the [luminosity method](https://en.wikipedia.org/wiki/Grayscale#Converting_color_to_grayscale) is used.
+
 ## Update loop
 
 A user can define the update rate of the shadows with the slider "**Timer update rate**". Every interval of this value an image from the video stream is captured and the update procedure is executed. With the button "Stop updates" the user can toggle the execution of said updates.
