@@ -1,5 +1,22 @@
 # environmental-ui-demo (implementation details)
 
+## Table of contents
+
+- [environmental-ui-demo (implementation details)](#environmental-ui-demo-implementation-details)
+    - [Project structure](#project-structure)
+    - [Camera/Webcam](#camerawebcam)
+    - [Preprocessing](#preprocessing)
+        - [Mirror image](#mirror-image)
+        - [Grayscale filter](#grayscale-filter)
+        - [Region averages](#region-averages)
+        - [Brightness gradient](#brightness-gradient)
+    - [Update loop](#update-loop)
+    - [Shadow properties](#shadow-properties)
+    - [Dark Mode](#dark-mode)
+    - [Soft and hard shadows](#soft-and-hard-shadows)
+    - [Criticism of environmental UI concepts](#criticism-of-environmental-ui-concepts)
+    - [Known problems for this demo](#known-problems-for-this-demo)
+
 ## Project structure
 
 The project consists of two different components: a server and a client component. The server serves static client files via HTTPS protocol while the client contains the main logic of the application.
