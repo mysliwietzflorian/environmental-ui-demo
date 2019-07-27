@@ -1,5 +1,34 @@
 # environmental-ui-demo (implementation details)
 
+## Project structure
+
+```
+environmental-ui-demo
+│   .gitignore
+│   LICENSE
+│   README.md
+├───client
+│   └───public
+│       │   index.html
+│       ├───css
+│       │       main.css
+│       │       normalize.css
+│       │       style.css
+│       └───js
+│           │   main.js
+│           │   plugins.js
+│           └───vendor
+│                   jquery_3.4.1.js
+└───doc
+        implementation.md
+└───server
+        index.js
+        package.json
+        server.cert
+        server.key
+
+```
+
 ## Camera/Webcam
 
 This application makes use of the user camera or webcam with [`Navigator.mediaDevices`](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/mediaDevices). All modern browsers require user interaction to allow access to these devices.
