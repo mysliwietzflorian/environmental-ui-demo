@@ -14,3 +14,12 @@ Moreover, the files are served via HTTPS and a self-signed certificate to ensure
 >
 > *(Extract from [MDN - MediaDevices.getUserMedia()#Encryption_based_security](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia#Encryption_based_security))*
 
+## Preprocessing
+
+As soon as the user grants permissions to use the camera device, a stream is captured in a HTMLVideoElement. Furthermore, a canvas element draws periodically an image from the video and applies the following preprocessing to it:
+
+- Mirror the input image
+- Transform to grayscale colors
+- Calculate region averages for 9 regions (3x3 matrix)
+- Calculate middle brightness gradient for these regions
+
