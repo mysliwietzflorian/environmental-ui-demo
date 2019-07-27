@@ -84,6 +84,17 @@ The brightness gradient uses the region averages calculated before and is the ba
 
 The Sobel operator in x- and y-direction is the underlying idea for the gradients. The convolution is only applied on the center region with the 8 surrounding neighbors.
 
+The following illustrations display different processing results. The first line contains the initially calculated gradient values while the second line present the resulting applied offsets.
+
+<p align="center">
+    <img alt="demonstration overview" src="img/gradient-01.png" width="150px">
+    <img alt="demonstration overview" src="img/gradient-02.png" width="150px">
+    <img alt="demonstration overview" src="img/gradient-03.png" width="150px">
+    <img alt="demonstration overview" src="img/gradient-04.png" width="150px">
+</p>
+
+> *Figure 1.* The proportions between initial gradient and applied pixel offsets might not be completely consistent: Values will be rounded and most of the time scaled in one dimension as a result of the format of the end-user's camera.
+
 While the directions of the shadows are the first step for the actual pixel offsets of the UI-elements, some modifications have to be made to accurately predict the direction of the light sources in the real world. The most important of these modifications is the scaling of the x- and y-offsets based on the format of the end-user's camera. Simply adjusting the proportions of the offsets to fit the ratio of the video dimension helps in providing correct results.
 
 ## Update loop
