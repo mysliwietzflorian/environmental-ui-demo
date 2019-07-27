@@ -78,6 +78,14 @@ The image is split into 9 equal-sized regions, 3 in horizontal and 3 in vertical
 - to toggle Dark Mode based on the maximum brightness value of one region
 - to adjust softness level of the shadows
 
+### Brightness gradient
+
+The brightness gradient uses the region averages calculated before and is the basis for the offsets of the shadows. These two values in x- and y-direction are normalized, scaled for the camera format and rounded before eventually applying them to the UI-elements.
+
+The Sobel operator in x- and y-direction is the underlying idea for the gradients. The convolution is only applied on the center region with the 8 surrounding neighbors.
+
+While the directions of the shadows are the first step for the actual pixel offsets of the UI-elements, some modifications have to be made to accurately predict the direction of the light sources in the real world. The most important of these modifications is the scaling of the x- and y-offsets based on the format of the end-user's camera. Simply adjusting the proportions of the offsets to fit the ratio of the video dimension helps in providing correct results.
+
 ## Update loop
 
 A user can define the update rate of the shadows with the slider "**Timer update rate**". Every interval of this value an image from the video stream is captured and the update procedure is executed. With the button "Stop updates" the user can toggle the execution of said updates.
