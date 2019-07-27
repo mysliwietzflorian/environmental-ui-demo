@@ -139,8 +139,8 @@ That is why Dark Mode is triggered when all regions of the current frame fall be
 As described in the Wikipedia article about [hard and soft light](https://en.wikipedia.org/wiki/Hard_and_soft_light) the following aspects about shading can be said:
 
 > The hardness or softness of light depends mostly on the following two factors:
-- Distance. The closer the light source, the softer it becomes.  
-- Size of light source. The larger the source, the softer it becomes.  
+> - Distance. The closer the light source, the softer it becomes.  
+> - Size of light source. The larger the source, the softer it becomes.  
 >
 >*(Extract from [Wikipedia - Hard and soft light](https://en.wikipedia.org/wiki/Hard_and_soft_light))*
 
