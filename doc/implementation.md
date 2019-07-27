@@ -95,3 +95,15 @@ Another argument for this kind of UI can be the natural changing between Dark an
 
 While environmentally lit UI can solve these problems partly, they are definitely still prone to some errors. In these circumstances a manual switch to Dark or Light Mode should always be provided to a user.
 
+## Known problems for this demo
+
+- [ ] Webcam on iOS-devices seems to be stuck.
+
+- [ ] Disabling the slider elements (`<input type="range" disabled>`) is not displayed correctly. This is important for the slider "**Light source factor**".
+
+- [ ] The direction of light sources cannot always be determined precisely. One problem might occur if the light source is outside of the camera view. It might shine on an object in frame and trigger that element as light source.
+
+- [ ] The quality of the demo highly depends on the angle of the camera frame. If the view angle is greater, then the probability that the light source is captured in frame gets bigger.
+
+- [ ] If multiple light sources are recognized (true or reflective sources) the direction and the intensity can be completely wrong.
+
