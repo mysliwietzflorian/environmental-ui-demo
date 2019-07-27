@@ -120,7 +120,7 @@ $(document).ready(function() {
         timer = window.setInterval(() => {
             let offsets = calculateShadowOffset();
 
-            // adjust for effective offset based on skewed camera format
+            // adjust for effective offset based on camera format proportions
             offsets.x *= $webcam.width() / $webcam.height();
 
             let shadowAlpha = 0.2;
