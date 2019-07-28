@@ -200,3 +200,23 @@ While environmentally lit UI can solve these problems partly, they are definitel
 
 - [ ] As light intensity in captured videos change abruptly, camera's sensitivities tend to automatically adjust to a certain degree. These modifications have a negative impact on the calculations of the intensity shadows.
 
+## Demonstration
+
+<p align="center">
+    <img alt="application overview" src="img/overview-01.png">
+</p>
+
+> *Figure 2.* Basic use case of the application. In all three examples the adjustable parameters stay constant. Between illustration (A) and (B), the general direction of the light source stays the same, however, the intensity changes. As a result, the shadows in illustration (B) are harder. As the brightness decreased to a defined threshold, Dark Mode is applied to all UI-elements and the shadows disappear.
+
+<p align="center">
+    <img alt="shadow distance examples" src="img/overview-02.png">
+</p>
+
+> *Figure 3.* Demonstration of a change in the slider "**Maximum shadow distance**".
+
+<p align="center">
+    <img alt="shadow intensity examples" src="img/overview-03.png">
+</p>
+
+> *Figure 4.* Demonstration of the adjusting intensity of shadows. In illustration (A) the alpha value stays constant and regional changes are disregarded. Illustration (B) can be distinguished from (C) by the slider "**Light source factor**". Here the factor to differentiate a light source based on the maximum brightness region is changed.
+
