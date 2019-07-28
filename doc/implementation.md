@@ -286,3 +286,32 @@ While environmentally lit UI can solve these problems partly, they are definitel
 &nbsp;
 &nbsp;
 
+## Further research topics
+
+- Use all available camera devices, e.g. front- and back-camera on mobile.
+
+&nbsp;
+
+- Instead of dividing images in average regions to find light sources, use a region growing approach. In this way, the application can make use of
+    - multiple light source directions by extracting the centroid of a region (multiple shadows based on the different sources would be possible),
+    - the dimension and luminance of the light sources
+    - the color of the light sources
+
+&nbsp;
+
+- At the moment, pixel offsets for shadows are used. Alternatively, the angle from the surface normal of the display in x- and y-direction can be provided. This would enhance the implementation of other demonstrations like reflections as well as nacre-effects or carbon-effects.
+
+&nbsp;
+
+- While using different Dark- and Light-Mode triggers seem like a good idea, it is more intuitive to use a base threshold value and a jitter value for the border area.  
+E.g. Change from  
+`darkModeTrigger = 72, lightModeTrigger = 160` to  
+`darkModeTrigger = 116, jitterArea = 88`.
+
+&nbsp;
+
+- Add further demonstrations of environmental UI concepts. Examples could be reflections or carbon effects.
+
+&nbsp;
+
+- In the first place, environmental UI focuses on the illumination of UI-elements. Supplementary, other senses from the environment can be included. First, the use of audio signals (such as the sound of wind to move elements in the UI) can be an inspiration. Second, direct user interaction with the camera like in motion sensing input devices (e.g.: Microsoft Kinect) combined with UI-elements is an interesting aspect worth exploring. Lastly, the use of eye tracking can be applied to interact with UI-elements (cf. tooltips on hover).
