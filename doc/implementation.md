@@ -104,10 +104,10 @@ The Sobel operator in x- and y-direction is the underlying idea for the gradient
 The following illustrations display different processing results. The first line contains the initially calculated gradient values while the second line present the resulting applied offsets.
 
 <p align="center">
-    <img alt="demonstration overview" src="img/gradient-01.png" width="150px">
-    <img alt="demonstration overview" src="img/gradient-02.png" width="150px">
-    <img alt="demonstration overview" src="img/gradient-03.png" width="150px">
-    <img alt="demonstration overview" src="img/gradient-04.png" width="150px">
+    <img alt="gradient example" src="img/gradient-01.png" width="150px">
+    <img alt="gradient example" src="img/gradient-02.png" width="150px">
+    <img alt="gradient example" src="img/gradient-03.png" width="150px">
+    <img alt="gradient example" src="img/gradient-04.png" width="150px">
 </p>
 
 > *Figure 1.* The proportions between initial gradient and applied pixel offsets might not be completely consistent: Values will be rounded and most of the time scaled in one dimension as a result of the format of the end-user's camera.
