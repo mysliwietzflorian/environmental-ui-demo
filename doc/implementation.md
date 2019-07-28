@@ -16,6 +16,8 @@
     - [Soft and hard shadows](#soft-and-hard-shadows)
     - [Criticism of environmental UI concepts](#criticism-of-environmental-ui-concepts)
     - [Known problems for this demo](#known-problems-for-this-demo)
+    - [Demonstration](#demonstration)
+    - [Further research topics](#further-research-topics)
 
 ## Project structure
 
