@@ -147,7 +147,7 @@ Dark Mode shall be utilized automatically if the space around the user is not we
 This behavior can be compared to a skyline of a town:
 - As the sunlight shines all buildings can be seen perfectly.
 - At dusk the light will be less and less intense while structures are still well defined.
-- At nightfall street lanterns and the lights in the windows will be visible and as a result the skyline is still perceptible. The view changes in a way that the end-user can predict.
+- At nightfall street lanterns and the lights in the windows will be visible and as a result, the skyline is still perceptible. The view changes in a way that the end-user can predict.
 
 That is why Dark Mode is triggered when all regions of the current frame fall below a defined threshold. That value can be manipulated with the slider "**Dark-Mode trigger value**". To have a stable color theme on environments with small or frequent changes of light the value to trigger Light Mode again should be set higher than the other threshold and can be adjusted with the slider "**Light-Mode trigger value**". If the values of either slider is set to the corresponding extreme, a color theme can be established permanently without changing other logic.
 
@@ -197,4 +197,6 @@ While environmentally lit UI can solve these problems partly, they are definitel
 - [ ] The quality of the demo highly depends on the angle of the camera frame. If the view angle is greater, then the probability that the light source is captured in frame gets bigger.
 
 - [ ] If multiple light sources are recognized (true or reflective sources) the direction and the intensity can be completely wrong.
+
+- [ ] As light intensity in captured videos change abruptly, camera's sensitivities tend to automatically adjust to a certain degree. These modifications have a negative impact on the calculations of the intensity shadows.
 
