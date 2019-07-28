@@ -87,21 +87,21 @@ $(document).ready(function() {
             input.trigger('input');
         });
 
-        $('#timer-update-rate').change(event => {
+        $('#timer-update-rate').on('input', event => {
             updateRate = $(event.target).val();
             stopShadowUpdates();
             startShadowUpdates();
         });
 
-        $('#max-shadow-distance').change(event => {
+        $('#max-shadow-distance').on('input', event => {
             maxShadowDistance = $(event.target).val();
         });
 
-        $('#light-mode-trigger').change(event => {
+        $('#light-mode-trigger').on('input', event => {
             lightModeTriggerValue = $(event.target).val();
         });
 
-        $('#dark-mode-trigger').change(event => {
+        $('#dark-mode-trigger').on('input', event => {
             darkModeTriggerValue = $(event.target).val();
         });
 
@@ -110,7 +110,7 @@ $(document).ready(function() {
             $('#light-source-factor').prop('disabled', !isAlphaAdjusting);
         });
 
-        $('#light-source-factor').change(event => {
+        $('#light-source-factor').on('input', event => {
             lightSourceFactor = $(event.target).val();
             updatedAlphaValue = true;
         });
