@@ -236,3 +236,53 @@ While environmentally lit UI can solve these problems partly, they are definitel
 &nbsp;
 &nbsp;
 
+<p align="center">
+    <img alt="animated light direction demonstration" src="img/animated-01.gif">
+</p>
+
+> *Figure 5.* Animated demonstration of changing light directions and Dark Mode.
+
+&nbsp;
+&nbsp;
+&nbsp;
+
+<p align="center">
+    <img alt="animated maximum shadow distance demonstration" src="img/animated-02.gif">
+</p>
+
+> *Figure 6.* Animated demonstration of adjusting maximum shadow distance.
+
+&nbsp;
+&nbsp;
+&nbsp;
+
+<p align="center">
+    <img alt="animated timer update rate demonstration" src="img/animated-03.gif">
+</p>
+
+> *Figure 7.* Animated demonstration of timer update rate.
+
+&nbsp;
+&nbsp;
+&nbsp;
+
+<p align="center">
+    <img alt="animated intensity adjusting demonstration" src="img/animated-04.gif">
+</p>
+
+> *Figure 8.* Animated demonstration of shadow intensity.
+
+&nbsp;
+&nbsp;
+&nbsp;
+
+<p align="center">
+    <img alt="animated Dark Mode demonstration" src="img/animated-05.gif">
+</p>
+
+> *Figure 9.* Animated demonstration of Dark Mode trigger.
+
+&nbsp;
+&nbsp;
+&nbsp;
+
