@@ -16,7 +16,7 @@ To find out more about the implementation details take a look at the documentati
 
 ## Quick start :snail:
 
-Choose one of the following options:
+Use the following instructions:
 
 - Clone the git repository - `git clone https://github.com/mysliwietzflorian/environmental-ui-demo.git`.
 - Navigate to server directory - `cd environmental-ui-demo/server`.
