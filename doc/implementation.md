@@ -45,8 +45,8 @@ environmental-ui-demo
 │           │   plugins.js
 │           └───vendor
 │                   jquery_3.4.1.js
-└───doc
-        implementation.md
+├───doc
+|       implementation.md
 └───server
         index.js
         package.json
