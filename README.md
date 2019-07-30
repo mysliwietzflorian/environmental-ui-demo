@@ -1,5 +1,11 @@
 # environmental-ui-demo
 
+> An environmental user interface takes information from a device’s surroundings and uses it to render physically-accurate things on the screen. It appears as if the lights around you are shining on the things on the screen. If the lighting in your room is bright, then the things on your screen are brightly lit. They can even take on complex characteristics like mother-of-pearl or opal.
+>
+> *(Extract from [Bob Burrough - The Environmental User Interface](https://bobburrough.com/public/post/environmentally_lit_interface_a_quantum_leap_forward/))*
+
+&nbsp;
+
 <p align="center">
     <img alt="demonstration overview" src="doc/img/overview-01.png">
 </p>
