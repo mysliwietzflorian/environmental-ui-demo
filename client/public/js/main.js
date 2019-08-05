@@ -218,7 +218,7 @@ $(document).ready(function() {
                 let regionX = Math.floor(x / widthPerRegion);
                 let regionY = Math.floor(y / heightPerRegion);
 
-                regionIndex = (regionX + regionY * 3);
+                let regionIndex = (regionX + regionY * 3);
                 regionAverageArray[regionIndex] += currentValue;
             }
         }
@@ -257,7 +257,7 @@ $(document).ready(function() {
     };
 
     function updateDarkMode(regionAverageArray) {
-        maxBrightness = 0;
+        let maxBrightness = 0;
         regionAverageArray.forEach(value => {
             maxBrightness = Math.max(maxBrightness, value);
         });
