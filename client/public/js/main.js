@@ -1,3 +1,5 @@
+import * as coordinatesConverter from './lib/coordinatesConverter.js';
+
 $(document).ready(function() {
 
     const webcamConstants = {
@@ -320,7 +322,7 @@ $(document).ready(function() {
 
     function normalizeShadowOffset(offsets) {
         // convert to polar coordinates
-        let polar = cartesian2Polar(offsets.x, offsets.y);
+        let polar = coordinatesConverter.cartesian2Polar(offsets.x, offsets.y);
 
         // cap distance to max extension
         let shadowDistance = Math.min(polar.distance, maxExtension);
@@ -328,22 +330,8 @@ $(document).ready(function() {
         shadowDistance = shadowDistance / maxExtension * maxShadowDistance;
 
         polar.distance = shadowDistance;
-        return polar2Cartesian(polar.distance, polar.angle);
-    };
-
-    function cartesian2Polar(x, y) {
-        return {
-            distance: Math.sqrt(x*x + y*y),
-            angle: - Math.atan2(y, x) * 180 / Math.PI
-        };
-    };
-
-    function polar2Cartesian(distance, angle) {
-        let radians = - angle * Math.PI / 180;
-        return {
-            x: distance * Math.cos(radians),
-            y: distance * Math.sin(radians)
-        };
+        return coordinatesConverter.polar2Cartesian(polar.distance,
+            polar.angle);
     };
 
 });
