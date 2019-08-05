@@ -31,6 +31,8 @@ Use the following instructions:
 - Browse to `https://localhost` to view the static website. (Use HTTPS)
     - **Alternatively**: Use external IP address listed in server CLI to connect from a different device (other PC or mobile device) in the same network (e.g. `192.168.1.10`).
 
+Currently, this demonstration only works in certain browsers.
+
 ## Dependencies :children_crossing:
 
 ### Server
