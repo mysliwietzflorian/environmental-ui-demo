@@ -49,7 +49,8 @@ $(document).ready(function() {
 
         let displayCtx = $regionsDisplay[0].getContext('2d');
         displayCtx.fillStyle = 'rgb(204, 204, 204)';
-        displayCtx.fillRect(0, 0, $regionsDisplay.width(), $regionsDisplay.height());
+        displayCtx.fillRect(0, 0, $regionsDisplay.width(),
+            $regionsDisplay.height());
     };
 
     function initCameraDevice() {
@@ -58,7 +59,7 @@ $(document).ready(function() {
                 .then((stream) => {
                     $webcam[0].srcObject = stream;
                 }).catch(e => {
-                    console.error(`navigator.getUserMedia error: ${e.toString()}`);
+                    console.error(`navigator.getUserMedia: ${e.toString()}`);
                 });
         }
     };
@@ -82,7 +83,8 @@ $(document).ready(function() {
         $('.slider').each((index, item) => {
             let input = $(item).find('input');
             input.on('input', event => {
-                $(item).find('.slider__input-value').html($(event.target).val());
+                $(item).find('.slider__input-value').html(
+                    $(event.target).val());
             });
             input.trigger('input');
         });
@@ -129,7 +131,8 @@ $(document).ready(function() {
                 let maxBrightness = updateDarkMode(lastRegionAverage);
 
                 if (isAlphaAdjusting) {
-                    shadowAlpha = calculateShadowAlpha(lastRegionAverage, maxBrightness);
+                    shadowAlpha = calculateShadowAlpha(lastRegionAverage,
+                        maxBrightness);
                 }
             }
 
@@ -179,7 +182,8 @@ $(document).ready(function() {
     };
 
     function getBrightnessGradient(data, width, height) {
-        let regionAverageArray = calculateAverageForRegions(data, width, height);
+        let regionAverageArray = calculateAverageForRegions(data, width,
+            height);
         lastRegionAverage = regionAverageArray;
 
         let xGradient = convolveWithKernel(regionAverageArray, [
@@ -269,7 +273,8 @@ $(document).ready(function() {
 
     function calculateShadowAlpha(lastRegionAverage, maxBrightness) {
 
-        let lightSources = lastRegionAverage.filter(value => value > maxBrightness * lightSourceFactor).length;
+        let lightSources = lastRegionAverage.filter(value =>
+            value > maxBrightness * lightSourceFactor).length;
 
         // interpolate from lightsources=[1; 3; 9] to alpha=[0.5; 0.2; 0.1]
         let A, B, C, D;
