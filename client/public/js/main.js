@@ -58,7 +58,7 @@ $(document).ready(function() {
     function initCameraDevice() {
         if (navigator.mediaDevices.getUserMedia) {
             navigator.mediaDevices.getUserMedia(webcamConstants)
-                .then((stream) => {
+                .then(stream => {
                     $webcam[0].srcObject = stream;
                 }).catch(e => {
                     console.error(`navigator.getUserMedia: ${e.toString()}`);
@@ -176,10 +176,10 @@ $(document).ready(function() {
     function filterGrayscale(data) {
         for (let i = 0; i < data.length; i+= 4) {
             let gray = 0.21 * data[i] + 0.72 * data[i+1] + 0.07 * data[i+2];
-            data[i] = gray; // red
-            data[i+1] = gray; // green
-            data[i+2] = gray; // blue
-            data[i+3] = 255; // alpha
+            data[i] = gray;
+            data[i+1] = gray;
+            data[i+2] = gray;
+            data[i+3] = 255;
         }
     };
 
