@@ -35,7 +35,7 @@ $(document).ready(function() {
         initCameraDevice();
         addEventListeners();
 
-        startShadowUpdates();
+        timer.start(updateLoop);
     })();
 
     function initCanvasElements() {
@@ -69,11 +69,11 @@ $(document).ready(function() {
             if ($toggleUpdateButton.attr(attrName)) {
                 $toggleUpdateButton.removeAttr(attrName);
                 $toggleUpdateButton.text('Stop updates');
-                startShadowUpdates();
+                timer.start(updateLoop);
             } else {
                 $toggleUpdateButton.attr(attrName, true);
                 $toggleUpdateButton.text('Start updates');
-                stopShadowUpdates();
+                timer.stop();
             }
         });
 
@@ -115,33 +115,27 @@ $(document).ready(function() {
         });
     };
 
-    function startShadowUpdates() {
-        timer.start(() => {
-            let offsets = calculateShadowOffset();
+    function updateLoop() {
+        let offsets = calculateShadowOffset();
 
-            // adjust for effective offset based on camera format proportions
-            offsets.x *= $webcam.width() / $webcam.height();
+        // adjust for effective offset based on camera format proportions
+        offsets.x *= $webcam.width() / $webcam.height();
 
-            let shadowAlpha = 0.2;
-            let lastRegionAverage = imageProcessor.getLastRegionAverage();
-            if (lastRegionAverage != null) {
-                displayRegionAverages(lastRegionAverage);
-                let maxBrightness = updateDarkMode(lastRegionAverage);
+        let shadowAlpha = 0.2;
+        let lastRegionAverage = imageProcessor.getLastRegionAverage();
+        if (lastRegionAverage != null) {
+            displayRegionAverages(lastRegionAverage);
+            let maxBrightness = updateDarkMode(lastRegionAverage);
 
-                if (isAlphaAdjusting) {
-                    shadowAlpha = calculateShadowAlpha(lastRegionAverage,
-                        maxBrightness);
-                }
+            if (isAlphaAdjusting) {
+                shadowAlpha = calculateShadowAlpha(lastRegionAverage,
+                    maxBrightness);
             }
+        }
 
-            if (!inDarkMode) {
-                updateShadows(offsets, shadowAlpha);
-            }
-        });
-    };
-
-    function stopShadowUpdates() {
-        timer.stop();
+        if (!inDarkMode) {
+            updateShadows(offsets, shadowAlpha);
+        }
     };
 
     function setDarkMode() {
