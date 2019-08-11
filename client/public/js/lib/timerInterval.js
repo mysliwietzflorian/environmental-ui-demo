@@ -15,4 +15,4 @@ export function setUpdateRate(rate) {
     updateRate = rate;
     stop();
     start(delegate);
-}
+};
