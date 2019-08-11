@@ -1,5 +1,6 @@
 import * as coordinatesConverter from './lib/coordinatesConverter.js';
 import * as imageProcessor from './lib/imageProcessor.js';
+import * as timer from './lib/timerInterval.js';
 
 $(document).ready(function() {
 
@@ -28,10 +29,6 @@ $(document).ready(function() {
     let inDarkMode = false;
     let lightModeTriggerValue = 160;
     let darkModeTriggerValue = 72;
-
-    // timer interval variables
-    let timer = null;
-    let updateRate = 250;
 
     (function init() {
         initCanvasElements();
@@ -92,9 +89,7 @@ $(document).ready(function() {
         });
 
         $('#timer-update-rate').on('input', event => {
-            updateRate = $(event.target).val();
-            stopShadowUpdates();
-            startShadowUpdates();
+            timer.setUpdateRate($(event.target).val());
         });
 
         $('#max-shadow-distance').on('input', event => {
@@ -121,7 +116,7 @@ $(document).ready(function() {
     };
 
     function startShadowUpdates() {
-        timer = window.setInterval(() => {
+        timer.start(() => {
             let offsets = calculateShadowOffset();
 
             // adjust for effective offset based on camera format proportions
@@ -142,11 +137,11 @@ $(document).ready(function() {
             if (!inDarkMode) {
                 updateShadows(offsets, shadowAlpha);
             }
-        }, updateRate);
+        });
     };
 
     function stopShadowUpdates() {
-        clearInterval(timer);
+        timer.stop();
     };
 
     function setDarkMode() {
